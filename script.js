@@ -20,8 +20,20 @@ function success(position){
 
             place.innerHTML = data.name;
             temperature.innerHTML = Math.round(temp-273) + ' C';
+            temperature.onclick = function(){
+                if (temperature.innerHTML[temperature.innerHTML.length-1] === 'C'){
+                    temperature.innerHTML = (Math.round(temp-273))*1.8 + 32 + ' F';
+                }
+                else{
+                    temperature.innerHTML = (Math.round(temp-273)) + ' C';
+                }
+            }
+
+
             weather.innerHTML = weatherDesc+' <img src="'+ img +'"/>';
             
+
+
         }).catch(error);
 }
 
