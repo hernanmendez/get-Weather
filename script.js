@@ -1,3 +1,4 @@
+alert('the browser may give you an alert of unsafe scripts');
 var place = document.getElementById('place');
 var temperature = document.getElementById('temperature');
 var weather = document.getElementById('weather');
