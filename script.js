@@ -2,11 +2,11 @@ var place = document.getElementById('place');
 var temperature = document.getElementById('temperature');
 var weather = document.getElementById('weather');
 
-var errors = 0;
-var error = function(error){
-    errors++;
-    if(errors>4) alert('Try again Later');
-    else navigator.geolocation.getCurrentPosition(success,error,{timeout: 4000});
+function error(){
+    place.innerHTML = 'ERROR!';
+    place.style.color = 'red';
+    place.style.fontSize = '40px';
+    temperature.innerHTML = 'reload the website';
 }
 function success(position){
     position = position.coords;
@@ -22,8 +22,7 @@ function success(position){
             temperature.innerHTML = Math.round(temp-273) + ' C';
             weather.innerHTML = weatherDesc+' <img src="'+ img +'"/>';
             
-        })
-        .catch(error);
+        }).catch(error);
 }
 
 navigator.geolocation.getCurrentPosition(success,error,{timeout: 4000});
